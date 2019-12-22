@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: itoken-admin
+
+server:
+  port: 8084
+
+# Spring Boot Admin Server 的相关配置
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: health,info

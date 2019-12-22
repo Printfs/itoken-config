@@ -19,3 +19,13 @@ management:
     web:
       server:
         auto-time-requests: false
+
+# Spring Boot Admin Server 的相关配置
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: health,info
