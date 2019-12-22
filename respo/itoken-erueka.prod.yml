@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: itoken-eureka
+  boot:
+    admin:
+      client:
+        url: http://192.168.56.106:8084
+  zipkin:
+    base-url: http://192.168.56.106:9411
+
+server:
+  port: 8761
+
+eureka:
+  instance:
+    hostname: host
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/,http://${eureka.instance.hostname}:${server.port}/eureka/,http://${eureka.instance.hostname}:${server.port}/eureka/
+
+# Spring Boot Admin Server 的相关配置
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: health,info
