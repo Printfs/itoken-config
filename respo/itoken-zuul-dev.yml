@@ -1,20 +1,21 @@
 spring:
   application:
     name: itoken-zuul
+  boot:
+    admin:
+      client:
+        url: http://localhost:8084
+  zipkin:
+    base-url: http://localhost:9411
 
 server:
   port: 8769
 
-zuul:
-  routes:
-    backend-admin:
-      path: /backend/admin/**
-      serviceId: itoken-web-admin
-    backend-posts:
-      path: /backend/posts/**
-      serviceId: itoken-web-posts
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
 
-# Spring Boot Admin Server 的相关配置
 management:
   endpoint:
     health:
